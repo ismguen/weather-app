@@ -2,7 +2,8 @@
 Simple weather app with **JavaScript** using the **OpenWeatherMap API**.
 
 ## Preview
-![Weather App Preview](<img width="670" height="770" alt="Bildschirmfoto 2026-01-04 um 17 02 48" src="https://github.com/user-attachments/assets/13151c99-7c78-4663-895d-da14568d995c" />)
+![Weather App Preview]("https://github.com/user-attachments/assets/f3961e19-1694-449d-ae32-7893f77b8900")
+
 
 
 

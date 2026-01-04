@@ -1,0 +1,246 @@
+:root {
+    --bg-deep: #0d141b;
+    --bg-night: #0b1d2a;
+    --bg-dawn: #1c2e3f;
+    --accent-warm: #ff9d6c;
+    --accent-cool: #5dd6ff;
+    --card-top: rgba(255, 255, 255, 0.28);
+    --card-bottom: rgba(255, 255, 255, 0.12);
+    --text-strong: #f7fbff;
+    --text-soft: rgba(247, 251, 255, 0.78);
+    --glass-border: rgba(255, 255, 255, 0.35);
+    --shadow: 0 28px 60px rgba(3, 8, 16, 0.45);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100vh;
+}
+
+body {
+    display: grid;
+    place-items: center;
+    padding: 32px 16px 48px;
+    font-family: "Alegreya Sans", "Gill Sans", "Trebuchet MS", sans-serif;
+    color: var(--text-strong);
+    background:
+        radial-gradient(700px 380px at 15% 12%, rgba(255, 157, 108, 0.22), transparent 65%),
+        radial-gradient(600px 520px at 85% 8%, rgba(93, 214, 255, 0.2), transparent 62%),
+        linear-gradient(135deg, var(--bg-deep), var(--bg-night) 40%, var(--bg-dawn) 100%);
+}
+
+.card {
+    width: min(92vw, 520px);
+    padding: 34px 32px 30px;
+    border-radius: 28px;
+    background: linear-gradient(160deg, var(--card-top), var(--card-bottom));
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(18px);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    min-height: 620px;
+    position: relative;
+    overflow: hidden;
+    animation: card-rise 650ms ease-out;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    inset: -30% -20% auto auto;
+    width: 260px;
+    height: 260px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.24), transparent 62%);
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.search {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: center;
+}
+
+.search input {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    background: rgba(255, 255, 255, 0.75);
+    color: #1b2a3a;
+    font-size: 16px;
+    outline: none;
+    box-shadow: 0 12px 24px rgba(5, 10, 18, 0.12);
+    transition: box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.search input::placeholder {
+    color: rgba(16, 29, 44, 0.6);
+}
+
+.search input:focus {
+    border-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 16px 30px rgba(5, 10, 18, 0.2);
+}
+
+.search button {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.65));
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: transform 140ms ease, box-shadow 140ms ease;
+    box-shadow: 0 12px 20px rgba(5, 10, 18, 0.16);
+}
+
+.search button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 26px rgba(5, 10, 18, 0.22);
+}
+
+.search button:active {
+    transform: translateY(0);
+}
+
+.search-icon {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: rgba(16, 29, 44, 0.9);
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.weather {
+    text-align: center;
+    display: grid;
+    gap: 8px;
+    justify-items: center;
+    animation: fade-up 700ms ease-out 80ms both;
+}
+
+.weather-icon {
+    font-size: 80px;
+    filter: drop-shadow(0 10px 22px rgba(5, 10, 18, 0.25));
+}
+
+.temp {
+    margin: 0;
+    font-family: "Playfair Display", "Times New Roman", serif;
+    font-size: 56px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.city {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--text-soft);
+}
+
+.details {
+    margin-top: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    animation: fade-up 700ms ease-out 160ms both;
+}
+
+.detail {
+    padding: 16px;
+    border-radius: 20px;
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.16));
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 12px;
+    align-items: center;
+    min-height: 110px;
+}
+
+.detail-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    background-color: rgba(255, 255, 255, 0.35);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 22px 22px;
+}
+
+.detail-icon--humidity {
+    background-image: url("images/humidity.png");
+}
+
+.detail-icon--wind {
+    background-image: url("images/wind.png");
+}
+
+.detail-info {
+    display: grid;
+    gap: 6px;
+}
+
+.detail-label {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(247, 251, 255, 0.7);
+}
+
+.detail-value {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+@keyframes card-rise {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 540px) {
+    .card {
+        min-height: auto;
+        padding: 28px 22px 26px;
+    }
+
+    .details {
+        grid-template-columns: 1fr;
+    }
+
+    .temp {
+        font-size: 48px;
+    }
+}

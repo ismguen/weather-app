@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App v1.0 - Ismail</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="config.js"></script>
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="card">
+      <div class="search">
+        <input type="text" placeholder="Ort eingeben.." spellcheck="false" />
+        <button class="search-button" aria-label="Search">
+          <svg
+            class="search-icon"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <circle cx="11" cy="11" r="6.5"></circle>
+            <line x1="16.2" y1="16.2" x2="21" y2="21"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="weather">
+        <span class="weather-icon" aria-hidden="true">☀️</span>
+        <h1 class="temp">22°C</h1>
+        <h3 class="city">Berlin</h3>
+      </div>
+      <div class="details">
+        <div class="detail">
+          <div
+            class="detail-icon detail-icon--humidity"
+            aria-hidden="true"
+          ></div>
+          <div class="detail-info">
+            <span class="detail-label">Luftfeuchtigkeit</span>
+            <span class="detail-value humidity">--%</span>
+          </div>
+        </div>
+        <div class="detail">
+          <div class="detail-icon detail-icon--wind" aria-hidden="true"></div>
+          <div class="detail-info">
+            <span class="detail-label">Wind Geschwindigkeit</span>
+            <span class="detail-value wind">-- km/h</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
